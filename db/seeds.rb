@@ -7,3 +7,18 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+users = User.create!([
+  { name: "Eyad", email: "eyad@gmail.com" },
+  { name: "habsa", email: "habsa@gmail.com" }
+])
+
+posts = Post.create!([
+  { title: "Post 1", body: "Content", user: users[0] },
+  { title: "Post 2", body: "Content", user: users[1] }
+])
+
+PostEditor.create!([
+  { user: users[1], post: posts[0] },
+  { user: users[0], post: posts[1] }
+])
